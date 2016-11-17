@@ -23,7 +23,7 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
    
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: "SelectedToDoListTableViewCell", for: indexPath) as! SelectedToDoListTableViewCell
-      cell.displayToDoLabel.text = selectedList.itemsOnList[indexPath.row]
+      cell.displayToDoLabel.text = selectedList.itemsOnList[indexPath.row].itemTitle
       return cell
    }
    
@@ -32,8 +32,8 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
       
 //      if addNewItemTextField.text = "" {  }
       guard let addNewItemText = addNewItemTextField.text else { return true }
-      
-      selectedList.itemsOnList.append(addNewItemText)
+            
+      selectedList.itemsOnList.append(Item(itemTitle: addNewItemText))
       selectedListTableView.reloadData()
       addNewItemTextField.text = nil
       return true
@@ -50,7 +50,8 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
    
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       let detailViewController = segue.destination as! DetailViewController
-      detailViewController.selectedList = createdToDoLists[(selectedListTableView.indexPathForSelectedRow?.row)!]
+//      detailViewController.selectedList = selectedList
+      detailViewController.selectedItem = selectedList.itemsOnList[selectedListTableView.indexPathForSelectedRow!.row]
    }
    
    

@@ -101,6 +101,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="To-Do Lists" id="dpb-4x-tQh">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="ENg-sd-zu6">
+                            <connections>
+                                <action selector="cancelNewList:" destination="Rbb-pO-tLQ" id="Lop-BO-ni4"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wgh-ac-pL5">
                             <connections>
                                 <action selector="addNewListButton:" destination="Rbb-pO-tLQ" id="3hj-B3-aGr"/>
@@ -109,6 +114,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="allToDoListTableView" destination="4Xm-6Q-zsq" id="xPP-gL-CL1"/>
+                        <outlet property="cancelButtonOutlet" destination="ENg-sd-zu6" id="g4O-sk-X1g"/>
                         <outlet property="modalNewListView" destination="bqv-vY-evd" id="oUv-SP-vhH"/>
                         <outlet property="modalNewViewTextField" destination="6tI-KU-BUb" id="zBd-Lk-3hU"/>
                     </connections>

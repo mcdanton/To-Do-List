@@ -10,13 +10,24 @@ import Foundation
 import UIKit
 
 class ToDoList {
-   var title: String
-   var itemsOnList = [String]()
-   init(title: String) {
-      self.title = title
+   var listTitle: String
+   var itemsOnList = [Item]()
+   init(listTitle: String) {
+      self.listTitle = listTitle
    }
 }
 
+
+class Item {
+   
+   var itemTitle: String
+   var description: String = ""
+   
+   init(itemTitle: String) {
+      self.itemTitle = itemTitle
+   }
+}
+
+
 var createdToDoLists = [ToDoList]()
-var savedItemTitle = String()
 

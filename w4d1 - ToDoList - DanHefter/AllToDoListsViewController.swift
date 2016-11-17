@@ -15,12 +15,20 @@ class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITab
    @IBOutlet weak var allToDoListTableView: UITableView!
    @IBOutlet weak var modalNewListView: UIView!
    @IBOutlet weak var modalNewViewTextField: UITextField!
+   @IBOutlet weak var cancelButtonOutlet: UIBarButtonItem!
    
+   
+   @IBAction func cancelNewList(_ sender: AnyObject) {
+      modalNewListView.isHidden = true
+      cancelButtonOutlet.isEnabled = false
+      modalNewViewTextField.text = nil
+   }
    
    
    @IBAction func addNewListButton(_ sender: AnyObject) {
       modalNewListView.isHidden = false
       modalNewViewTextField.becomeFirstResponder()
+      cancelButtonOutlet.isEnabled = true
    }
 
    
@@ -28,9 +36,10 @@ class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITab
       modalNewViewTextField.endEditing(true)
       guard let modalText = modalNewViewTextField.text, modalText.characters.count > 0 else {
          modalNewListView.isHidden = true
+         cancelButtonOutlet.isEnabled = false
          return true
       }
-      createdToDoLists.append(ToDoList(title: modalText))
+      createdToDoLists.append(ToDoList(listTitle: modalText))
       modalNewListView.isHidden = true
       allToDoListTableView.reloadData()
       modalNewViewTextField.text = nil
@@ -51,20 +60,28 @@ class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITab
    
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: "AllToDoListsTableViewCell", for: indexPath) as! AllToDoListsTableViewCell
-      cell.newListLabel.text = createdToDoLists[indexPath.item].title
-      savedItemTitle = createdToDoLists[indexPath.item].title
+      cell.newListLabel.text = createdToDoLists[indexPath.item].listTitle
+      cancelButtonOutlet.isEnabled = false
       return cell
    }
 
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//      
+//      guard let index = allToDoListTableView.indexPathForSelectedRow?.row, index < createdToDoLists.count else {
+//         return
+//      }
+//      let list = createdToDoLists[index]
+      
+      
       let selectedToDoListViewController = segue.destination as! SelectedToDoListViewController
-      selectedToDoListViewController.selectedList = createdToDoLists[(allToDoListTableView.indexPathForSelectedRow?.row)!]
+      selectedToDoListViewController.selectedList = createdToDoLists[allToDoListTableView.indexPathForSelectedRow!.row]
    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
       modalNewViewTextField.delegate = self
       modalNewListView.isHidden = true
+      cancelButtonOutlet.isEnabled = false
 
         // Do any additional setup after loading the view.
     }

@@ -13,7 +13,7 @@ class DetailViewController: UIViewController, UITextViewDelegate {
    @IBOutlet weak var detailViewLabel: UILabel!
    @IBOutlet weak var detailViewTextField: UITextView!
    
-   var selectedList: ToDoList!
+   var selectedItem: Item!
 
       func textViewDidBeginEditing(_ textView: UITextView) {
          detailViewTextField.text = ""
@@ -24,10 +24,16 @@ class DetailViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
       detailViewTextField.delegate = self
-      detailViewLabel.text = savedItemTitle
+      detailViewLabel.text = selectedItem.itemTitle
+      detailViewTextField.text = selectedItem.description
 
         // Do any additional setup after loading the view.
     }
+   
+   override func viewWillDisappear(_ animated: Bool) {
+      super.viewWillDisappear(animated)
+      selectedItem.description = detailViewTextField.text
+   }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
