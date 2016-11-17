@@ -21,7 +21,7 @@ class ToDoList {
 class Item {
    
    var itemTitle: String
-   var description: String = ""
+   var description: String = "Add an item description"
    
    init(itemTitle: String) {
       self.itemTitle = itemTitle

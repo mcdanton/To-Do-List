@@ -42,7 +42,7 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
 
    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
       if editingStyle == .delete {
-         createdToDoLists.remove(at: indexPath.item)
+         selectedList.itemsOnList.remove(at: indexPath.item)
          selectedListTableView.reloadData()
       }
    }

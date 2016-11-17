@@ -17,8 +17,8 @@ class AllToDoListsTableViewCell: UITableViewCell, UITextFieldDelegate {
    
    
    @IBAction func editListName(_ sender: AnyObject) {
-      
-      
+      newListTextField.isHidden = false
+      newListLabel.isHidden = true
    }
    
 

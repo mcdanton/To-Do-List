@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		377BA9151DDE1D6300CD2586 /* YellowButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 377BA9141DDE1D6300CD2586 /* YellowButton.png */; };
+		377BA9191DDE1D7000CD2586 /* BlackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 377BA9161DDE1D7000CD2586 /* BlackButton.png */; };
+		377BA91A1DDE1D7000CD2586 /* BlueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 377BA9171DDE1D7000CD2586 /* BlueButton.png */; };
+		377BA91B1DDE1D7000CD2586 /* RubyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 377BA9181DDE1D7000CD2586 /* RubyButton.png */; };
 		3799B1161DDA4E6100C332ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799B1151DDA4E6100C332ED /* AppDelegate.swift */; };
 		3799B11B1DDA4E6100C332ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3799B1191DDA4E6100C332ED /* Main.storyboard */; };
 		3799B11D1DDA4E6100C332ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3799B11C1DDA4E6100C332ED /* Assets.xcassets */; };
@@ -20,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		377BA9141DDE1D6300CD2586 /* YellowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YellowButton.png; sourceTree = "<group>"; };
+		377BA9161DDE1D7000CD2586 /* BlackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlackButton.png; sourceTree = "<group>"; };
+		377BA9171DDE1D7000CD2586 /* BlueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueButton.png; sourceTree = "<group>"; };
+		377BA9181DDE1D7000CD2586 /* RubyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RubyButton.png; sourceTree = "<group>"; };
 		3799B1121DDA4E6100C332ED /* w4d1 - ToDoList - DanHefter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "w4d1 - ToDoList - DanHefter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3799B1151DDA4E6100C332ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3799B11A1DDA4E6100C332ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,6 +53,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		377BA9131DDE1AB500CD2586 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				377BA9161DDE1D7000CD2586 /* BlackButton.png */,
+				377BA9171DDE1D7000CD2586 /* BlueButton.png */,
+				377BA9181DDE1D7000CD2586 /* RubyButton.png */,
+				377BA9141DDE1D6300CD2586 /* YellowButton.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		3799B1091DDA4E6100C332ED = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +83,7 @@
 		3799B1141DDA4E6100C332ED /* w4d1 - ToDoList - DanHefter */ = {
 			isa = PBXGroup;
 			children = (
+				377BA9131DDE1AB500CD2586 /* Images */,
 				3799B12A1DDA5FCF00C332ED /* AllToDoLists */,
 				3799B1291DDA5FBB00C332ED /* SelectedToDoList */,
 				3799B1341DDCD24A00C332ED /* DetailViewController.swift */,
@@ -155,9 +175,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				377BA91B1DDE1D7000CD2586 /* RubyButton.png in Resources */,
+				377BA9191DDE1D7000CD2586 /* BlackButton.png in Resources */,
+				377BA91A1DDE1D7000CD2586 /* BlueButton.png in Resources */,
 				3799B1201DDA4E6100C332ED /* LaunchScreen.storyboard in Resources */,
 				3799B11D1DDA4E6100C332ED /* Assets.xcassets in Resources */,
 				3799B11B1DDA4E6100C332ED /* Main.storyboard in Resources */,
+				377BA9151DDE1D6300CD2586 /* YellowButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
