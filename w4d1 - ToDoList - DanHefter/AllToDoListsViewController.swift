@@ -64,6 +64,7 @@ class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITab
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: "AllToDoListsTableViewCell", for: indexPath) as! AllToDoListsTableViewCell
       cell.newListLabel.text = createdToDoLists[indexPath.item].listTitle
+      
       cancelButtonOutlet.isEnabled = false
       return cell
    }
@@ -77,7 +78,7 @@ class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITab
       
       
       let selectedToDoListViewController = segue.destination as! SelectedToDoListViewController
-      selectedToDoListViewController.selectedList = createdToDoLists[allToDoListTableView.indexPathForSelectedRow!.row]
+      selectedToDoListViewController.selectedIndexOfList = allToDoListTableView.indexPathForSelectedRow!.row
    }
    
     override func viewDidLoad() {

@@ -144,20 +144,29 @@
                                         <rect key="frame" x="0.0" y="92" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cit-Yw-Zxf" id="j1R-RP-oPl">
-                                            <frame key="frameInset" width="375" height="60"/>
+                                            <frame key="frameInset" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ae1-4Y-JzA">
-                                                    <frame key="frameInset" minX="8" minY="19" width="359" height="21"/>
+                                                    <frame key="frameInset" minX="26" minY="19" width="302" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cz4-0O-c7k">
+                                                    <frame key="frameInset" minX="318" minY="14" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" backgroundImage="emptyCheckbox.png"/>
+                                                    <connections>
+                                                        <action selector="taskCompletedAction:" destination="cit-Yw-Zxf" eventType="touchUpInside" id="DMA-Qp-SkA"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="displayToDoLabel" destination="Ae1-4Y-JzA" id="9bY-Yf-HGE"/>
+                                            <outlet property="taskCompleteButton" destination="Cz4-0O-c7k" id="AYp-wf-bMf"/>
                                             <segue destination="71X-Ha-jJt" kind="show" identifier="ListItemsToDetail" id="0A5-nF-0jR"/>
                                         </connections>
                                     </tableViewCell>
@@ -184,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q3v-iJ-F5K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1172" y="108"/>
+            <point key="canvasLocation" x="1172" y="107.49625187406298"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="koq-NH-ZvE">
@@ -225,5 +234,47 @@
             </objects>
             <point key="canvasLocation" x="1872.8" y="106.59670164917542"/>
         </scene>
+        <!--Test File View Controller-->
+        <scene sceneID="ogW-8W-IbJ">
+            <objects>
+                <viewController id="yEN-iR-jgv" customClass="TestFileViewController" customModule="w4d1___ToDoList___DanHefter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Ej-if-JmK"/>
+                        <viewControllerLayoutGuide type="bottom" id="Un2-7C-JGv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xrj-tJ-Nct">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is my text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqB-IE-iXZ">
+                                <frame key="frameInset" minX="54" minY="149" width="248" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0I-U5-rbD">
+                                <frame key="frameInset" minX="16" minY="453" width="343" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Strikethrough Text"/>
+                                <connections>
+                                    <action selector="myFontButton:" destination="yEN-iR-jgv" eventType="touchUpInside" id="YOf-We-A3i"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="myLabel" destination="HqB-IE-iXZ" id="Rd4-SJ-rOX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z3p-uZ-Sn6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2688.8000000000002" y="108.39580209895054"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="emptyCheckbox.png" width="128" height="128"/>
+    </resources>
 </document>

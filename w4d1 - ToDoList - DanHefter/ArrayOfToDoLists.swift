@@ -22,6 +22,8 @@ class Item {
    
    var itemTitle: String
    var description: String = "Add an item description"
+   var taskCompleted: Bool = false
+   var attributeString = NSMutableAttributedString()
    
    init(itemTitle: String) {
       self.itemTitle = itemTitle
