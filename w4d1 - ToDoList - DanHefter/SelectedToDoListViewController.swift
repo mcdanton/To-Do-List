@@ -28,7 +28,14 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
       cell.currentIndexOfItem = indexPath.row
       cell.selectedList = selectedIndexOfList
       if currentItem.taskCompleted == true {
+         cell.taskCompleteButton.setBackgroundImage(UIImage(named: "checkedBox" ), for: UIControlState.normal)
+         cell.displayToDoLabel.text = currentItem.itemTitle
+         currentItem.attributeString = NSMutableAttributedString(string: cell.displayToDoLabel.text!)
+         currentItem.attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 1, range: NSMakeRange(0, (cell.displayToDoLabel.text?.characters.count)!))
+         currentItem.attributeString.addAttribute(NSStrikethroughColorAttributeName, value: UIColor.black, range: NSMakeRange(0, (cell.displayToDoLabel.text?.characters.count)!))
+
          cell.displayToDoLabel.attributedText = currentItem.attributeString
+         
       } else {
       cell.displayToDoLabel.text = currentItem.itemTitle
       }
