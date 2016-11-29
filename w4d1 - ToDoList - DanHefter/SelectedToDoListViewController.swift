@@ -24,13 +24,16 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: "SelectedToDoListTableViewCell", for: indexPath) as! SelectedToDoListTableViewCell
       let currentItem: Item = createdToDoLists[selectedIndexOfList!].itemsOnList[indexPath.row]
-      //cell.currentItem = currentItem
+
       cell.currentIndexOfItem = indexPath.row
       cell.selectedList = selectedIndexOfList
+      
       if currentItem.taskCompleted == true {
          cell.displayToDoLabel.attributedText = currentItem.attributeString
+         cell.taskCompleteButton.setBackgroundImage(UIImage(named: "checkedBox" ), for: UIControlState.normal)
       } else {
       cell.displayToDoLabel.text = currentItem.itemTitle
+         cell.taskCompleteButton.setBackgroundImage(UIImage(named: "emptyCheckbox" ), for: UIControlState.normal)
       }
       return cell
    }
@@ -45,6 +48,7 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
       guard let addNewItemText = addNewItemTextField.text else { return true }
             
       createdToDoLists[selectedIndexOfList!].itemsOnList.append(Item(itemTitle: addNewItemText))
+//      UserDefaults.standard.set(createdToDoLists[selectedIndexOfList!].itemsOnList, forKey: "ItemsInList")
       selectedListTableView.reloadData()
       addNewItemTextField.text = nil
       return true
@@ -69,6 +73,10 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
 override func viewDidLoad() {
    addNewItemTextField.delegate = self
    addNewItemTextField.becomeFirstResponder()
+//   if let savedItemsArray = UserDefaults.standard.array(forKey: "ItemsInList") {
+//      createdToDoLists[selectedIndexOfList!].itemsOnList = savedItemsArray as! [Item]
+//   }
+   
    super.viewDidLoad()
    
    // Do any additional setup after loading the view.
@@ -90,4 +98,6 @@ override func didReceiveMemoryWarning() {
  }
  */
 
+   
+   
 }

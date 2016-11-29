@@ -13,7 +13,6 @@
 		377BA91B1DDE1D7000CD2586 /* RubyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 377BA9181DDE1D7000CD2586 /* RubyButton.png */; };
 		377BA9251DDE3CEA00CD2586 /* emptyCheckbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 377BA9241DDE3CEA00CD2586 /* emptyCheckbox.png */; };
 		377BA9271DDE42FF00CD2586 /* checkedBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 377BA9261DDE42FF00CD2586 /* checkedBox.png */; };
-		37878F6A1DDF635A000437F9 /* TestFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37878F691DDF635A000437F9 /* TestFileViewController.swift */; };
 		3799B1161DDA4E6100C332ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799B1151DDA4E6100C332ED /* AppDelegate.swift */; };
 		3799B11B1DDA4E6100C332ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3799B1191DDA4E6100C332ED /* Main.storyboard */; };
 		3799B11D1DDA4E6100C332ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3799B11C1DDA4E6100C332ED /* Assets.xcassets */; };
@@ -33,7 +32,6 @@
 		377BA9181DDE1D7000CD2586 /* RubyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RubyButton.png; sourceTree = "<group>"; };
 		377BA9241DDE3CEA00CD2586 /* emptyCheckbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyCheckbox.png; sourceTree = "<group>"; };
 		377BA9261DDE42FF00CD2586 /* checkedBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedBox.png; sourceTree = "<group>"; };
-		37878F691DDF635A000437F9 /* TestFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFileViewController.swift; sourceTree = "<group>"; };
 		3799B1121DDA4E6100C332ED /* w4d1 - ToDoList - DanHefter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "w4d1 - ToDoList - DanHefter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3799B1151DDA4E6100C332ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3799B11A1DDA4E6100C332ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,6 +64,8 @@
 				377BA9171DDE1D7000CD2586 /* BlueButton.png */,
 				377BA9181DDE1D7000CD2586 /* RubyButton.png */,
 				377BA9141DDE1D6300CD2586 /* YellowButton.png */,
+				377BA9241DDE3CEA00CD2586 /* emptyCheckbox.png */,
+				377BA9261DDE42FF00CD2586 /* checkedBox.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -99,9 +99,6 @@
 				3799B11C1DDA4E6100C332ED /* Assets.xcassets */,
 				3799B11E1DDA4E6100C332ED /* LaunchScreen.storyboard */,
 				3799B1211DDA4E6100C332ED /* Info.plist */,
-				377BA9241DDE3CEA00CD2586 /* emptyCheckbox.png */,
-				377BA9261DDE42FF00CD2586 /* checkedBox.png */,
-				37878F691DDF635A000437F9 /* TestFileViewController.swift */,
 			);
 			path = "w4d1 - ToDoList - DanHefter";
 			sourceTree = "<group>";
@@ -209,7 +206,6 @@
 				3799B12E1DDA601700C332ED /* SelectedToDoListTableViewCell.swift in Sources */,
 				3799B1301DDA609C00C332ED /* AllToDoListsViewController.swift in Sources */,
 				3799B12C1DDA600000C332ED /* AllToDoListsTableViewCell.swift in Sources */,
-				37878F6A1DDF635A000437F9 /* TestFileViewController.swift in Sources */,
 				3799B1351DDCD24A00C332ED /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
