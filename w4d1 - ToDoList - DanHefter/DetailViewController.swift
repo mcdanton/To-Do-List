@@ -30,7 +30,7 @@ class DetailViewController: UIViewController, UITextViewDelegate {
       super.viewDidLoad()
       detailViewTextField.delegate = self
       detailViewLabel.text = selectedItem.itemTitle
-      detailViewTextField.text = selectedItem.description
+      detailViewTextField.text = selectedItem.itemDescription
       
       // Do any additional setup after loading the view.
    }
@@ -38,7 +38,7 @@ class DetailViewController: UIViewController, UITextViewDelegate {
    override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(animated)
       if detailViewTextField.text == "" {
-         detailViewTextField.text = selectedItem.description
+         detailViewTextField.text = selectedItem.itemDescription
       } else {
          selectedItem.itemDescription = detailViewTextField.text
       }

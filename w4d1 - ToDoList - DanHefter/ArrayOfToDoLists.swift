@@ -36,7 +36,7 @@ class ToDoList: NSObject, NSCoding {
 class Item: NSObject, NSCoding {
    
    var itemTitle: String
-   var itemDescription: String = "Add an item itemDescription"
+   var itemDescription: String = "Add an item description"
    var taskCompleted: Bool = false
    var attributeString = NSMutableAttributedString()
    
