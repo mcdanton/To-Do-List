@@ -28,10 +28,10 @@ class DetailViewController: UIViewController, UITextViewDelegate {
    
    override func viewDidLoad() {
       detailViewTextField.delegate = self
-         detailViewLabel.text = selectedItem.itemTitle
-         detailViewTextField.text = selectedItem.itemDescription
+      detailViewLabel.text = selectedItem.itemTitle
+      detailViewTextField.text = selectedItem.itemDescription
       super.viewDidLoad()
-
+      
       // Do any additional setup after loading the view.
    }
    
@@ -45,6 +45,8 @@ class DetailViewController: UIViewController, UITextViewDelegate {
          UserDefaults.standard.set(encodeItem, forKey: "createdToDoLists")
       }
    }
+   
+   
    
    override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()

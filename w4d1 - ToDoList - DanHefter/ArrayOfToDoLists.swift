@@ -11,11 +11,7 @@ import UIKit
 
 class ToDoList: NSObject, NSCoding {
    var listTitle: String
-   var itemsOnList = [Item]() {
-      didSet {
-         print(itemsOnList)
-      }
-   }
+   var itemsOnList = [Item]()
    
    init(listTitle: String) {
       self.listTitle = listTitle
@@ -44,9 +40,7 @@ class Item: NSObject, NSCoding {
    init(itemTitle: String) {
       self.itemTitle = itemTitle
    }
-   
-   
-   
+
    // MARK: NSCoding
    func encode(with aCoder: NSCoder) {
       aCoder.encode(itemTitle, forKey: PropertyKey.itemTitle)
@@ -63,9 +57,8 @@ class Item: NSObject, NSCoding {
    }
 }
 
-
-
 var createdToDoLists = [ToDoList]()
+
 
 let masterListDic = [String:[[String:Any]]]()
 

@@ -10,12 +10,12 @@ import UIKit
 
 class SelectedToDoListTableViewCell: UITableViewCell {
    
-   //var currentItem: Item?
+   @IBOutlet weak var displayToDoLabel: UILabel!
+   @IBOutlet weak var taskCompleteButton: UIButton!
+   
    var selectedList: Int?
    var currentIndexOfItem: Int?
    
-   @IBOutlet weak var displayToDoLabel: UILabel!
-   @IBOutlet weak var taskCompleteButton: UIButton!
    
    func strikethroughText() -> () {
       
@@ -44,9 +44,9 @@ class SelectedToDoListTableViewCell: UITableViewCell {
          
          taskCompleteButton.setBackgroundImage(UIImage(named: "checkedBox" ), for: UIControlState.normal)
          strikethroughText()
-            createdToDoLists[myList].itemsOnList[myItemIndex].taskCompleted = true
-         }
+         createdToDoLists[myList].itemsOnList[myItemIndex].taskCompleted = true
       }
+   }
    
    
    
@@ -62,6 +62,4 @@ class SelectedToDoListTableViewCell: UITableViewCell {
       
       // Configure the view for the selected state
    }
-   
-   
 }
