@@ -48,8 +48,8 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
       guard let addNewItemText = addNewItemTextField.text else { return true }
             
       createdToDoLists[selectedIndexOfList!].itemsOnList.append(Item(itemTitle: addNewItemText))
-      let encodeItem = NSKeyedArchiver.archivedData(withRootObject: createdToDoLists[selectedIndexOfList!].itemsOnList)
-      UserDefaults.standard.set(encodeItem, forKey: "Items")
+      let encodeItem = NSKeyedArchiver.archivedData(withRootObject: createdToDoLists)
+      UserDefaults.standard.set(encodeItem, forKey: "createdToDoLists")
 
       
 //      UserDefaults.standard.set(createdToDoLists[selectedIndexOfList!].itemsOnList, forKey: "ItemsInList")
@@ -77,14 +77,7 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
 override func viewDidLoad() {
    addNewItemTextField.delegate = self
    addNewItemTextField.becomeFirstResponder()
-   if let encodeItem = UserDefaults.standard.object(forKey: "Items") as? Data {
-      createdToDoLists[selectedIndexOfList!].itemsOnList = NSKeyedUnarchiver.unarchiveObject(with: encodeItem) as! [Item]
-   }
 
-   
-   //   if let savedItemsArray = UserDefaults.standard.array(forKey: "ItemsInList") {
-//      createdToDoLists[selectedIndexOfList!].itemsOnList = savedItemsArray as! [Item]
-//   }
    
    super.viewDidLoad()
    

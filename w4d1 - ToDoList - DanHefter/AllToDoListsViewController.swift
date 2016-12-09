@@ -44,6 +44,11 @@ class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITab
       let encodeData = NSKeyedArchiver.archivedData(withRootObject: createdToDoLists)
       UserDefaults.standard.set(encodeData, forKey: "createdToDoLists")
       
+      print(encodeData)
+      
+      
+      
+      
       modalNewListView.isHidden = true
       allToDoListTableView.reloadData()
       modalNewViewTextField.text = nil
@@ -83,22 +88,20 @@ class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITab
       
       let selectedToDoListViewController = segue.destination as! SelectedToDoListViewController
       selectedToDoListViewController.selectedIndexOfList = allToDoListTableView.indexPathForSelectedRow!.row
-      UserDefaults.standard.set(selectedToDoListViewController.selectedIndexOfList, forKey: "createdToDoLists")
    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-/* Uncomment here if you want to delete the saved data in UserDefaults!!
-      UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
-      UserDefaults.standard.synchronize()
-*/
+// Uncomment here if you want to delete the saved data in UserDefaults!!
+//      UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+//      UserDefaults.standard.synchronize()
+
       modalNewViewTextField.delegate = self
       modalNewListView.isHidden = true
       cancelButtonOutlet.isEnabled = false
       if let encodeData = UserDefaults.standard.object(forKey: "createdToDoLists") as? Data {
          createdToDoLists = NSKeyedUnarchiver.unarchiveObject(with: encodeData) as! [ToDoList]
-         SelectedToDoListViewController.selectedIndexOfList = NSKeyedUnarchiver.unarchiveObject(with: encodeData) as! Int
 
       }
         // Do any additional setup after loading the view.

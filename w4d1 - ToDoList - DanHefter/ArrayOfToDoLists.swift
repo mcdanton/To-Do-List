@@ -11,14 +11,15 @@ import UIKit
 
 class ToDoList: NSObject, NSCoding {
    var listTitle: String
-   var itemsOnList = [Item]()
-   
+   var itemsOnList = [Item]() {
+      didSet {
+         print(itemsOnList)
+      }
+   }
    
    init(listTitle: String) {
       self.listTitle = listTitle
    }
-   
-   
    
    // MARK: NSCoding
    func encode(with aCoder: NSCoder) {
@@ -50,14 +51,14 @@ class Item: NSObject, NSCoding {
    func encode(with aCoder: NSCoder) {
       aCoder.encode(itemTitle, forKey: PropertyKey.itemTitle)
       aCoder.encode(itemDescription, forKey: PropertyKey.itemDescription)
-      aCoder.encode(taskCompleted, forKey: PropertyKey.taskCompleted)
+      aCoder.encode(NSNumber(value: taskCompleted), forKey: PropertyKey.taskCompleted)
       aCoder.encode(attributeString, forKey: PropertyKey.attributeString)
    }
    
    required init?(coder aDecoder: NSCoder) {
       itemTitle = aDecoder.decodeObject(forKey:(PropertyKey.itemTitle)) as! String
       itemDescription = aDecoder.decodeObject(forKey:(PropertyKey.itemDescription)) as! String
-      taskCompleted = aDecoder.decodeObject(forKey:(PropertyKey.taskCompleted)) as! Bool
+      taskCompleted = (aDecoder.decodeObject(forKey:(PropertyKey.taskCompleted)) as! NSNumber).boolValue
       attributeString = aDecoder.decodeObject(forKey:(PropertyKey.attributeString)) as! NSMutableAttributedString
    }
 }
@@ -65,6 +66,8 @@ class Item: NSObject, NSCoding {
 
 
 var createdToDoLists = [ToDoList]()
+
+let masterListDic = [String:[[String:Any]]]()
 
 struct PropertyKey {
    static let listTitle = "listTitle"

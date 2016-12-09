@@ -27,11 +27,11 @@ class DetailViewController: UIViewController, UITextViewDelegate {
    
    
    override func viewDidLoad() {
-      super.viewDidLoad()
       detailViewTextField.delegate = self
-      detailViewLabel.text = selectedItem.itemTitle
-      detailViewTextField.text = selectedItem.itemDescription
-      
+         detailViewLabel.text = selectedItem.itemTitle
+         detailViewTextField.text = selectedItem.itemDescription
+      super.viewDidLoad()
+
       // Do any additional setup after loading the view.
    }
    
@@ -41,6 +41,8 @@ class DetailViewController: UIViewController, UITextViewDelegate {
          detailViewTextField.text = selectedItem.itemDescription
       } else {
          selectedItem.itemDescription = detailViewTextField.text
+         let encodeItem = NSKeyedArchiver.archivedData(withRootObject: createdToDoLists)
+         UserDefaults.standard.set(encodeItem, forKey: "createdToDoLists")
       }
    }
    

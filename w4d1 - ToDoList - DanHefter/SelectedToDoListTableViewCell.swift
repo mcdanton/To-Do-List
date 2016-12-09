@@ -21,7 +21,7 @@ class SelectedToDoListTableViewCell: UITableViewCell {
       
       guard let myList = selectedList else {return}
       guard let myItemIndex = currentIndexOfItem else {return}
-      createdToDoLists[myList].itemsOnList[myItemIndex].attributeString  = NSMutableAttributedString(string: displayToDoLabel.text!)
+      createdToDoLists[myList].itemsOnList[myItemIndex].attributeString = NSMutableAttributedString(string: displayToDoLabel.text!)
       createdToDoLists[myList].itemsOnList[myItemIndex].attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 1, range: NSMakeRange(0, (displayToDoLabel.text?.characters.count)!))
       createdToDoLists[myList].itemsOnList[myItemIndex].attributeString.addAttribute(NSStrikethroughColorAttributeName, value: UIColor.black, range: NSMakeRange(0, (displayToDoLabel.text?.characters.count)!))
       
