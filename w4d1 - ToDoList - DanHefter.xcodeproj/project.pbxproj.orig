@@ -99,6 +99,11 @@
 				3799B11C1DDA4E6100C332ED /* Assets.xcassets */,
 				3799B11E1DDA4E6100C332ED /* LaunchScreen.storyboard */,
 				3799B1211DDA4E6100C332ED /* Info.plist */,
+<<<<<<< HEAD
+				377BA9241DDE3CEA00CD2586 /* emptyCheckbox.png */,
+				377BA9261DDE42FF00CD2586 /* checkedBox.png */,
+=======
+>>>>>>> workingCopy
 			);
 			path = "w4d1 - ToDoList - DanHefter";
 			sourceTree = "<group>";

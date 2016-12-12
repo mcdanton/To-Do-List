@@ -10,13 +10,12 @@ import UIKit
 
 class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
    
-   
+   let selectedToDoListViewController = SelectedToDoListViewController()
    
    @IBOutlet weak var allToDoListTableView: UITableView!
    @IBOutlet weak var modalNewListView: UIView!
    @IBOutlet weak var modalNewViewTextField: UITextField!
    @IBOutlet weak var cancelButtonOutlet: UIBarButtonItem!
-
    
    
    @IBAction func cancelNewList(_ sender: AnyObject) {
@@ -31,7 +30,7 @@ class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITab
       modalNewViewTextField.becomeFirstResponder()
       cancelButtonOutlet.isEnabled = true
    }
-
+   
    
    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
       modalNewViewTextField.endEditing(true)
@@ -41,69 +40,81 @@ class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITab
          return true
       }
       createdToDoLists.append(ToDoList(listTitle: modalText))
+      let encodeData = NSKeyedArchiver.archivedData(withRootObject: createdToDoLists)
+      UserDefaults.standard.set(encodeData, forKey: "createdToDoLists")
+      
       modalNewListView.isHidden = true
       allToDoListTableView.reloadData()
       modalNewViewTextField.text = nil
       return true
    }
-
+   
    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
       if editingStyle == .delete {
          createdToDoLists.remove(at: indexPath.item)
+         let encodeData = NSKeyedArchiver.archivedData(withRootObject: createdToDoLists)
+         UserDefaults.standard.set(encodeData, forKey: "createdToDoLists")
          allToDoListTableView.reloadData()
       }
    }
    
+   
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return createdToDoLists.count
    }
-
-   
    
    
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: "AllToDoListsTableViewCell", for: indexPath) as! AllToDoListsTableViewCell
-      cell.newListLabel.text = createdToDoLists[indexPath.item].listTitle
       
+      cell.newListLabel.text = createdToDoLists[indexPath.item].listTitle
       cancelButtonOutlet.isEnabled = false
       return cell
    }
-
+   
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//      
-//      guard let index = allToDoListTableView.indexPathForSelectedRow?.row, index < createdToDoLists.count else {
-//         return
-//      }
-//      let list = createdToDoLists[index]
-      
       
       let selectedToDoListViewController = segue.destination as! SelectedToDoListViewController
       selectedToDoListViewController.selectedIndexOfList = allToDoListTableView.indexPathForSelectedRow!.row
    }
    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+   
+   
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      
+      // Uncomment below lines if you want to delete the saved data in UserDefaults!!
+//            UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+//            UserDefaults.standard.synchronize()
+      
       modalNewViewTextField.delegate = self
       modalNewListView.isHidden = true
       cancelButtonOutlet.isEnabled = false
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
+      if let encodeData = UserDefaults.standard.object(forKey: "createdToDoLists") as? Data {
+         createdToDoLists = NSKeyedUnarchiver.unarchiveObject(with: encodeData) as! [ToDoList]
+         
+      }
+      // Do any additional setup after loading the view.
+   }
+   
+   
+   
+   
+   override func didReceiveMemoryWarning() {
+      super.didReceiveMemoryWarning()
+      // Dispose of any resources that can be recreated.
+   }
+   
+   
+   /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+   
+   
 }

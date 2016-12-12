@@ -21,16 +21,16 @@ class DetailViewController: UIViewController, UITextViewDelegate {
    
    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
       detailViewTextField.endEditing(true)
-      selectedItem.description = detailViewTextField.text
+      selectedItem.itemDescription = detailViewTextField.text
       return true
    }
    
    
    override func viewDidLoad() {
-      super.viewDidLoad()
       detailViewTextField.delegate = self
       detailViewLabel.text = selectedItem.itemTitle
-      detailViewTextField.text = selectedItem.description
+      detailViewTextField.text = selectedItem.itemDescription
+      super.viewDidLoad()
       
       // Do any additional setup after loading the view.
    }
@@ -38,11 +38,15 @@ class DetailViewController: UIViewController, UITextViewDelegate {
    override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(animated)
       if detailViewTextField.text == "" {
-         detailViewTextField.text = selectedItem.description
+         detailViewTextField.text = selectedItem.itemDescription
       } else {
-         selectedItem.description = detailViewTextField.text
+         selectedItem.itemDescription = detailViewTextField.text
+         let encodeItem = NSKeyedArchiver.archivedData(withRootObject: createdToDoLists)
+         UserDefaults.standard.set(encodeItem, forKey: "createdToDoLists")
       }
    }
+   
+   
    
    override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()

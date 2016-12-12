@@ -21,7 +21,6 @@ class AllToDoListsTableViewCell: UITableViewCell, UITextFieldDelegate {
       newListLabel.isHidden = true
    }
    
-
    
    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
       newListTextField.endEditing(true)
@@ -35,20 +34,20 @@ class AllToDoListsTableViewCell: UITableViewCell, UITextFieldDelegate {
       newListLabel.isHidden = false
       newListLabel.text = newListTextField.text
    }
-
    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+   
+   override func awakeFromNib() {
+      super.awakeFromNib()
+      // Initialization code
       newListTextField.delegate = self
       newListTextField.isHidden = true
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+   }
+   
+   override func setSelected(_ selected: Bool, animated: Bool) {
+      super.setSelected(selected, animated: animated)
+      
+      // Configure the view for the selected state
+   }
+   
 }
 
