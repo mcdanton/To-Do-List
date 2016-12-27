@@ -8,66 +8,73 @@
 
 import Foundation
 import UIKit
+import Firebase
 
-class ToDoList: NSObject, NSCoding {
+class ToDoList: NSObject {
    var listTitle: String
    var itemsOnList = [Item]()
+   var reference: FIRDatabaseReference?
    
    init(listTitle: String) {
       self.listTitle = listTitle
    }
    
-   // MARK: NSCoding
-   func encode(with aCoder: NSCoder) {
-      aCoder.encode(listTitle, forKey: PropertyKey.listTitle)
-      aCoder.encode(itemsOnList, forKey: PropertyKey.itemsOnList)
-   }
+   // MARK: Firebase Reference
+   init(snapshot:FIRDataSnapshot) {
+      listTitle = snapshot.key
+//      let snapshotValue = snapshot.value as! [String:Any]
+      reference = snapshot.ref
+      }
    
-   required init?(coder aDecoder: NSCoder) {
-      listTitle = aDecoder.decodeObject(forKey:(PropertyKey.listTitle)) as! String
-      itemsOnList = aDecoder.decodeObject(forKey:(PropertyKey.itemsOnList)) as! [Item]
+   //parse list snapshot into List instance
+   //Then get List from lists and add on Item instance
+   //Then read all tasks per list
+   func toAnyObject() -> Any {
+      return [
+         "itemsOnList": itemsOnList
+      ]
    }
+
 }
 
 
-class Item: NSObject, NSCoding {
+class Item: NSObject {
    
    var itemTitle: String
    var itemDescription: String = "Add an item description"
    var taskCompleted: Bool = false
    var attributeString = NSMutableAttributedString()
+   var reference: FIRDatabaseReference?
    
    init(itemTitle: String) {
       self.itemTitle = itemTitle
    }
-
-   // MARK: NSCoding
-   func encode(with aCoder: NSCoder) {
-      aCoder.encode(itemTitle, forKey: PropertyKey.itemTitle)
-      aCoder.encode(itemDescription, forKey: PropertyKey.itemDescription)
-      aCoder.encode(NSNumber(value: taskCompleted), forKey: PropertyKey.taskCompleted)
-      aCoder.encode(attributeString, forKey: PropertyKey.attributeString)
+   
+   // MARK: Firebase Reference
+   init(snapshot:FIRDataSnapshot) {
+      itemTitle = snapshot.key
+      let snapshotValue = snapshot.value as! [String:Any]
+      itemTitle = snapshotValue["itemTitle"] as! String
+      itemDescription = snapshotValue["itemDescription"] as! String
+      taskCompleted = snapshotValue["taskCompleted"] as! Bool
+      attributeString = snapshotValue["attributeString"] as! NSMutableAttributedString
+      reference = snapshot.ref
    }
    
-   required init?(coder aDecoder: NSCoder) {
-      itemTitle = aDecoder.decodeObject(forKey:(PropertyKey.itemTitle)) as! String
-      itemDescription = aDecoder.decodeObject(forKey:(PropertyKey.itemDescription)) as! String
-      taskCompleted = (aDecoder.decodeObject(forKey:(PropertyKey.taskCompleted)) as! NSNumber).boolValue
-      attributeString = aDecoder.decodeObject(forKey:(PropertyKey.attributeString)) as! NSMutableAttributedString
+   func toAnyObject() -> Any {
+      return [
+         "itemTitle": itemTitle,
+         "itemDescription": itemDescription,
+         "taskCompleted": taskCompleted,
+         "attributeString": attributeString
+      ]
    }
-}
+
+ }
+
+
 
 var createdToDoLists = [ToDoList]()
 
 
-let masterListDic = [String:[[String:Any]]]()
-
-struct PropertyKey {
-   static let listTitle = "listTitle"
-   static let itemsOnList = "itemsOnList"
-   static let itemTitle = "itemTitle"
-   static let itemDescription = "itemDescription"
-   static let taskCompleted = "taskCompleted"
-   static let attributeString = "attributeString"
-}
 

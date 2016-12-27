@@ -41,9 +41,7 @@ class DetailViewController: UIViewController, UITextViewDelegate {
          detailViewTextField.text = selectedItem.itemDescription
       } else {
          selectedItem.itemDescription = detailViewTextField.text
-         let encodeItem = NSKeyedArchiver.archivedData(withRootObject: createdToDoLists)
-         UserDefaults.standard.set(encodeItem, forKey: "createdToDoLists")
-      }
+       }
    }
    
    

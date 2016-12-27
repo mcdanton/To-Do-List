@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,9 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
       // Override point for customization after application launch.
       
-      if let savedListArray = UserDefaults.standard.array(forKey: "Lists") {
-         createdToDoLists = savedListArray as! [ToDoList]
-      }
+      FIRApp.configure()
       
       return true
    }

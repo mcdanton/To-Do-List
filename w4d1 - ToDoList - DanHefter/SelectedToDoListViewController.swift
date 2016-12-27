@@ -48,8 +48,6 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
       guard let addNewItemText = addNewItemTextField.text else { return true }
       
       createdToDoLists[selectedIndexOfList!].itemsOnList.append(Item(itemTitle: addNewItemText))
-      let encodeItem = NSKeyedArchiver.archivedData(withRootObject: createdToDoLists)
-      UserDefaults.standard.set(encodeItem, forKey: "createdToDoLists")
       
       selectedListTableView.reloadData()
       addNewItemTextField.text = nil
@@ -60,9 +58,6 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
       if editingStyle == .delete {
          createdToDoLists[selectedIndexOfList!].itemsOnList.remove(at: indexPath.item)
-         let encodeData = NSKeyedArchiver.archivedData(withRootObject: createdToDoLists)
-         UserDefaults.standard.set(encodeData, forKey: "createdToDoLists")
-         selectedListTableView.reloadData()
       }
    }
    

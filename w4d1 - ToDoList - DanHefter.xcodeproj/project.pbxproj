@@ -23,9 +23,13 @@
 		3799B1301DDA609C00C332ED /* AllToDoListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799B12F1DDA609C00C332ED /* AllToDoListsViewController.swift */; };
 		3799B1321DDA61A800C332ED /* ArrayOfToDoLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799B1311DDA61A800C332ED /* ArrayOfToDoLists.swift */; };
 		3799B1351DDCD24A00C332ED /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799B1341DDCD24A00C332ED /* DetailViewController.swift */; };
+		37E87E781E086E190014EDE4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37E87E771E086E190014EDE4 /* GoogleService-Info.plist */; };
+		752DF9D3B51071A185E547A3 /* libPods-w4d1 - ToDoList - DanHefter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B7D1F45274400704E0B24C /* libPods-w4d1 - ToDoList - DanHefter.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C19F0A894A5C76A13243733 /* Pods-w4d1 - ToDoList - DanHefter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-w4d1 - ToDoList - DanHefter.release.xcconfig"; path = "Pods/Target Support Files/Pods-w4d1 - ToDoList - DanHefter/Pods-w4d1 - ToDoList - DanHefter.release.xcconfig"; sourceTree = "<group>"; };
+		27B7D1F45274400704E0B24C /* libPods-w4d1 - ToDoList - DanHefter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-w4d1 - ToDoList - DanHefter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		377BA9141DDE1D6300CD2586 /* YellowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YellowButton.png; sourceTree = "<group>"; };
 		377BA9161DDE1D7000CD2586 /* BlackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlackButton.png; sourceTree = "<group>"; };
 		377BA9171DDE1D7000CD2586 /* BlueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueButton.png; sourceTree = "<group>"; };
@@ -44,6 +48,8 @@
 		3799B12F1DDA609C00C332ED /* AllToDoListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllToDoListsViewController.swift; sourceTree = "<group>"; };
 		3799B1311DDA61A800C332ED /* ArrayOfToDoLists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayOfToDoLists.swift; sourceTree = "<group>"; };
 		3799B1341DDCD24A00C332ED /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		37E87E771E086E190014EDE4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FD6951960842663EAB61F464 /* Pods-w4d1 - ToDoList - DanHefter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-w4d1 - ToDoList - DanHefter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-w4d1 - ToDoList - DanHefter/Pods-w4d1 - ToDoList - DanHefter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				752DF9D3B51071A185E547A3 /* libPods-w4d1 - ToDoList - DanHefter.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +82,8 @@
 			children = (
 				3799B1141DDA4E6100C332ED /* w4d1 - ToDoList - DanHefter */,
 				3799B1131DDA4E6100C332ED /* Products */,
+				E619E6F092337FC773291910 /* Pods */,
+				3A01D876AD0BE598A2594B29 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +108,7 @@
 				3799B11C1DDA4E6100C332ED /* Assets.xcassets */,
 				3799B11E1DDA4E6100C332ED /* LaunchScreen.storyboard */,
 				3799B1211DDA4E6100C332ED /* Info.plist */,
+				37E87E771E086E190014EDE4 /* GoogleService-Info.plist */,
 			);
 			path = "w4d1 - ToDoList - DanHefter";
 			sourceTree = "<group>";
@@ -121,6 +131,23 @@
 			name = AllToDoLists;
 			sourceTree = "<group>";
 		};
+		3A01D876AD0BE598A2594B29 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27B7D1F45274400704E0B24C /* libPods-w4d1 - ToDoList - DanHefter.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E619E6F092337FC773291910 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FD6951960842663EAB61F464 /* Pods-w4d1 - ToDoList - DanHefter.debug.xcconfig */,
+				0C19F0A894A5C76A13243733 /* Pods-w4d1 - ToDoList - DanHefter.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,9 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3799B1241DDA4E6100C332ED /* Build configuration list for PBXNativeTarget "w4d1 - ToDoList - DanHefter" */;
 			buildPhases = (
+				92618F350CDDF946B95A935F /* [CP] Check Pods Manifest.lock */,
 				3799B10E1DDA4E6100C332ED /* Sources */,
 				3799B10F1DDA4E6100C332ED /* Frameworks */,
 				3799B1101DDA4E6100C332ED /* Resources */,
+				811115A3DDEB03246AE319B7 /* [CP] Embed Pods Frameworks */,
+				9D0617BFF4079DFF0115442D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,6 +211,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37E87E781E086E190014EDE4 /* GoogleService-Info.plist in Resources */,
 				377BA9271DDE42FF00CD2586 /* checkedBox.png in Resources */,
 				377BA91B1DDE1D7000CD2586 /* RubyButton.png in Resources */,
 				377BA9191DDE1D7000CD2586 /* BlackButton.png in Resources */,
@@ -194,6 +225,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		811115A3DDEB03246AE319B7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-w4d1 - ToDoList - DanHefter/Pods-w4d1 - ToDoList - DanHefter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92618F350CDDF946B95A935F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9D0617BFF4079DFF0115442D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-w4d1 - ToDoList - DanHefter/Pods-w4d1 - ToDoList - DanHefter-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3799B10E1DDA4E6100C332ED /* Sources */ = {
@@ -327,6 +406,7 @@
 		};
 		3799B1251DDA4E6100C332ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD6951960842663EAB61F464 /* Pods-w4d1 - ToDoList - DanHefter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DZ528PGQF5;
@@ -340,6 +420,7 @@
 		};
 		3799B1261DDA4E6100C332ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C19F0A894A5C76A13243733 /* Pods-w4d1 - ToDoList - DanHefter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DZ528PGQF5;

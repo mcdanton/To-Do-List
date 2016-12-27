@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
    
@@ -16,6 +17,33 @@ class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITab
    @IBOutlet weak var modalNewListView: UIView!
    @IBOutlet weak var modalNewViewTextField: UITextField!
    @IBOutlet weak var cancelButtonOutlet: UIBarButtonItem!
+   
+   
+   func listenForLists() {
+      
+      let savedLists = FIRDatabase.database().reference(withPath: "lists")
+      savedLists.queryOrderedByKey().observe(.value, with: didUpdateLists)
+   }
+   
+   func didUpdateLists(snapshot:FIRDataSnapshot) {
+      
+      createdToDoLists.removeAll()
+      for item in snapshot.children {
+         let list = ToDoList(snapshot: item as! FIRDataSnapshot)
+         createdToDoLists.append(list)
+      }
+      print(createdToDoLists)
+   }
+   
+   
+   func createList(title: String) {
+      
+      let listsRef = FIRDatabase.database().reference(withPath: "lists")
+      let list = ToDoList(listTitle: title)
+      let listRef = listsRef.child(title)
+      listRef.setValue(list.toAnyObject())
+      
+   }
    
    
    @IBAction func cancelNewList(_ sender: AnyObject) {
@@ -40,8 +68,6 @@ class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITab
          return true
       }
       createdToDoLists.append(ToDoList(listTitle: modalText))
-      let encodeData = NSKeyedArchiver.archivedData(withRootObject: createdToDoLists)
-      UserDefaults.standard.set(encodeData, forKey: "createdToDoLists")
       
       modalNewListView.isHidden = true
       allToDoListTableView.reloadData()
@@ -52,9 +78,6 @@ class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITab
    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
       if editingStyle == .delete {
          createdToDoLists.remove(at: indexPath.item)
-         let encodeData = NSKeyedArchiver.archivedData(withRootObject: createdToDoLists)
-         UserDefaults.standard.set(encodeData, forKey: "createdToDoLists")
-         allToDoListTableView.reloadData()
       }
    }
    
@@ -83,17 +106,12 @@ class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITab
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      // Uncomment below lines if you want to delete the saved data in UserDefaults!!
-//            UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
-//            UserDefaults.standard.synchronize()
+      listenForLists()
       
       modalNewViewTextField.delegate = self
       modalNewListView.isHidden = true
       cancelButtonOutlet.isEnabled = false
-      if let encodeData = UserDefaults.standard.object(forKey: "createdToDoLists") as? Data {
-         createdToDoLists = NSKeyedUnarchiver.unarchiveObject(with: encodeData) as! [ToDoList]
-         
-      }
+      
       // Do any additional setup after loading the view.
    }
    
