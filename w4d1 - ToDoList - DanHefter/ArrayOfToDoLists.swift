@@ -22,21 +22,26 @@ class ToDoList: NSObject {
    // MARK: Firebase Reference
    init(snapshot:FIRDataSnapshot) {
       listTitle = snapshot.key
-//      let snapshotValue = snapshot.value as! [String:Any]
+      //      let snapshotValue = snapshot.value as! [String:Any]
       reference = snapshot.ref
-      }
+   }
    
    //parse list snapshot into List instance
    //Then get List from lists and add on Item instance
    //Then read all tasks per list
    func toAnyObject() -> Any {
-      return [
-         "itemsOnList": itemsOnList
-      ]
+      
+      if itemsOnList.isEmpty {
+         return 0
+      } else {
+         return 0
+      }
+      //      else {
+      //         for task in itemsOnList {
+      //            value[task.itemTitle] = task.toAnyObject()
+      //         }
    }
-
 }
-
 
 class Item: NSObject {
    
@@ -66,11 +71,10 @@ class Item: NSObject {
          "itemTitle": itemTitle,
          "itemDescription": itemDescription,
          "taskCompleted": taskCompleted,
-         "attributeString": attributeString
       ]
    }
-
- }
+   
+}
 
 
 

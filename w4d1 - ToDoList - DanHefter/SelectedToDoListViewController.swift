@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SelectedToDoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
    
@@ -15,8 +16,29 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
    @IBOutlet weak var addNewItemTextField: UITextField!
    
    var selectedIndexOfList: Int?
+   var currentList: ToDoList {
+      return createdToDoLists[selectedIndexOfList!]
+   }
+   
+   //MARK: Firebase Functions
+   func createItem(title: String) {
+      let item = Item(itemTitle: title)
+      let itemRef = currentList.reference?.child(title)
+      itemRef?.setValue(item.toAnyObject())
+   }
+   
+   func listenForTasks() {
+      currentList.reference?.observe(.value, with: didUpdateTasks)
+   }
+   
+   func didUpdateTasks(snapshot:FIRDataSnapshot) {
+      
+      let updatedList = ToDoList(snapshot:snapshot)
+      createdToDoLists[selectedIndexOfList!] = updatedList
+      }
    
    
+   //MARK: TableView Setup
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return createdToDoLists[selectedIndexOfList!].itemsOnList.count
    }
@@ -31,10 +53,10 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
       
       if currentItem.taskCompleted == true {
          cell.displayToDoLabel.attributedText = currentItem.attributeString
-         cell.taskCompleteButton.setBackgroundImage(UIImage(named: "checkedBox" ), for: UIControlState.normal)
+         cell.taskCompleteButton.setBackgroundImage(UIImage(named: "checkedBox"), for: UIControlState.normal)
       } else {
          cell.displayToDoLabel.text = currentItem.itemTitle
-         cell.taskCompleteButton.setBackgroundImage(UIImage(named: "emptyCheckbox" ), for: UIControlState.normal)
+         cell.taskCompleteButton.setBackgroundImage(UIImage(named: "emptyCheckbox"), for: UIControlState.normal)
       }
       return cell
    }
@@ -48,6 +70,7 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
       guard let addNewItemText = addNewItemTextField.text else { return true }
       
       createdToDoLists[selectedIndexOfList!].itemsOnList.append(Item(itemTitle: addNewItemText))
+      createItem(title: addNewItemText)
       
       selectedListTableView.reloadData()
       addNewItemTextField.text = nil
@@ -68,14 +91,14 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
    }
    
    
+   //MARK: View Did Load
    override func viewDidLoad() {
       addNewItemTextField.delegate = self
       addNewItemTextField.becomeFirstResponder()
       
       
       super.viewDidLoad()
-      
-      // Do any additional setup after loading the view.
+      listenForTasks()
    }
    
    override func didReceiveMemoryWarning() {

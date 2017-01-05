@@ -39,10 +39,9 @@ class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITab
    func createList(title: String) {
       
       let listsRef = FIRDatabase.database().reference(withPath: "lists")
-      let list = ToDoList(listTitle: title)
+      let listInstance = ToDoList(listTitle: title)
       let listRef = listsRef.child(title)
-      listRef.setValue(list.toAnyObject())
-      
+      listRef.setValue(listInstance.toAnyObject())
    }
    
    
@@ -68,6 +67,7 @@ class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITab
          return true
       }
       createdToDoLists.append(ToDoList(listTitle: modalText))
+      createList(title: modalText)
       
       modalNewListView.isHidden = true
       allToDoListTableView.reloadData()

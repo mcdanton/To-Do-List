@@ -23,7 +23,7 @@
 		3799B1301DDA609C00C332ED /* AllToDoListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799B12F1DDA609C00C332ED /* AllToDoListsViewController.swift */; };
 		3799B1321DDA61A800C332ED /* ArrayOfToDoLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799B1311DDA61A800C332ED /* ArrayOfToDoLists.swift */; };
 		3799B1351DDCD24A00C332ED /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799B1341DDCD24A00C332ED /* DetailViewController.swift */; };
-		37E87E781E086E190014EDE4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37E87E771E086E190014EDE4 /* GoogleService-Info.plist */; };
+		37CC82641E1D8B13008A3D46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37CC82631E1D8B13008A3D46 /* GoogleService-Info.plist */; };
 		752DF9D3B51071A185E547A3 /* libPods-w4d1 - ToDoList - DanHefter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B7D1F45274400704E0B24C /* libPods-w4d1 - ToDoList - DanHefter.a */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +48,7 @@
 		3799B12F1DDA609C00C332ED /* AllToDoListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllToDoListsViewController.swift; sourceTree = "<group>"; };
 		3799B1311DDA61A800C332ED /* ArrayOfToDoLists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayOfToDoLists.swift; sourceTree = "<group>"; };
 		3799B1341DDCD24A00C332ED /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		37E87E771E086E190014EDE4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		37CC82631E1D8B13008A3D46 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FD6951960842663EAB61F464 /* Pods-w4d1 - ToDoList - DanHefter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-w4d1 - ToDoList - DanHefter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-w4d1 - ToDoList - DanHefter/Pods-w4d1 - ToDoList - DanHefter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,7 +108,7 @@
 				3799B11C1DDA4E6100C332ED /* Assets.xcassets */,
 				3799B11E1DDA4E6100C332ED /* LaunchScreen.storyboard */,
 				3799B1211DDA4E6100C332ED /* Info.plist */,
-				37E87E771E086E190014EDE4 /* GoogleService-Info.plist */,
+				37CC82631E1D8B13008A3D46 /* GoogleService-Info.plist */,
 			);
 			path = "w4d1 - ToDoList - DanHefter";
 			sourceTree = "<group>";
@@ -211,7 +211,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37E87E781E086E190014EDE4 /* GoogleService-Info.plist in Resources */,
 				377BA9271DDE42FF00CD2586 /* checkedBox.png in Resources */,
 				377BA91B1DDE1D7000CD2586 /* RubyButton.png in Resources */,
 				377BA9191DDE1D7000CD2586 /* BlackButton.png in Resources */,
@@ -221,6 +220,7 @@
 				3799B11D1DDA4E6100C332ED /* Assets.xcassets in Resources */,
 				3799B11B1DDA4E6100C332ED /* Main.storyboard in Resources */,
 				377BA9151DDE1D6300CD2586 /* YellowButton.png in Resources */,
+				37CC82641E1D8B13008A3D46 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
