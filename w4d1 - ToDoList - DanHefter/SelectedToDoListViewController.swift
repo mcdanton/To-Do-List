@@ -24,7 +24,10 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
    func createItem(title: String) {
       let item = Item(itemTitle: title)
       let itemRef = currentList.reference?.child(title)
-      itemRef?.setValue(item.toAnyObject())
+      itemRef?.setValue([
+         "itemDescription": "",
+         "taskCompleted": false
+         ])
    }
    
    func listenForTasks() {

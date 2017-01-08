@@ -30,18 +30,9 @@ class ToDoList: NSObject {
    //Then get List from lists and add on Item instance
    //Then read all tasks per list
    func toAnyObject() -> Any {
-      
-      if itemsOnList.isEmpty {
-         return 0
-      } else {
          return 0
       }
-      //      else {
-      //         for task in itemsOnList {
-      //            value[task.itemTitle] = task.toAnyObject()
-      //         }
    }
-}
 
 class Item: NSObject {
    

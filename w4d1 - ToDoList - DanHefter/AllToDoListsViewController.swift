@@ -38,10 +38,9 @@ class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITab
    
    func createList(title: String) {
       
-      let listsRef = FIRDatabase.database().reference(withPath: "lists")
-      let listInstance = ToDoList(listTitle: title)
-      let listRef = listsRef.child(title)
-      listRef.setValue(listInstance.toAnyObject())
+      let allListsRef = FIRDatabase.database().reference(withPath: "lists")
+      let listRef = allListsRef.child(title)
+      listRef.setValue(0)
    }
    
    
