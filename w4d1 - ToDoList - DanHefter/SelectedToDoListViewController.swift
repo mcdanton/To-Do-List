@@ -17,21 +17,22 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
    var selectedIndexOfList: Int?
    
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return createdToDoLists[selectedIndexOfList!].itemsOnList.count
+      return (CoreDataModel.model.allLists[selectedIndexOfList!].arrayOfItemsOnList.count)
+//      return createdToDoLists[selectedIndexOfList!].itemsOnList.count
    }
    
    
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: "SelectedToDoListTableViewCell", for: indexPath) as! SelectedToDoListTableViewCell
-      let currentItem: Item = createdToDoLists[selectedIndexOfList!].itemsOnList[indexPath.row]
-      //cell.currentItem = currentItem
+      let currentItem = CoreDataModel.model.allLists[selectedIndexOfList!].arrayOfItemsOnList[indexPath.row]
+//      let currentItem: Item = createdToDoLists[selectedIndexOfList!].itemsOnList[indexPath.row]
       cell.currentIndexOfItem = indexPath.row
       cell.selectedList = selectedIndexOfList
-      if currentItem.taskCompleted == true {
-         cell.displayToDoLabel.attributedText = currentItem.attributeString
-      } else {
-      cell.displayToDoLabel.text = currentItem.itemTitle
-      }
+//      if currentItem.taskCompleted == true {
+//         cell.displayToDoLabel.attributedText = currentItem.attributeString
+//      } else {
+//      cell.displayToDoLabel.text = currentItem.itemTitle
+//      }
       return cell
    }
    
@@ -43,8 +44,9 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
       
 //      if addNewItemTextField.text = "" {  }
       guard let addNewItemText = addNewItemTextField.text else { return true }
-            
-      createdToDoLists[selectedIndexOfList!].itemsOnList.append(Item(itemTitle: addNewItemText))
+      
+      CoreDataModel.model.createItem(title: addNewItemText)
+//      createdToDoLists[selectedIndexOfList!].itemsOnList.append(Item(itemTitle: addNewItemText))
       selectedListTableView.reloadData()
       addNewItemTextField.text = nil
       return true
@@ -53,7 +55,8 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
 
    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
       if editingStyle == .delete {
-         createdToDoLists[selectedIndexOfList!].itemsOnList.remove(at: indexPath.item)
+         CoreDataModel.model.deleteItem(item: CoreDataModel.model.allLists[selectedIndexOfList!].arrayOfItemsOnList[indexPath.item])
+//         createdToDoLists[selectedIndexOfList!].itemsOnList.remove(at: indexPath.item)
          selectedListTableView.reloadData()
       }
    }
@@ -61,8 +64,8 @@ class SelectedToDoListViewController: UIViewController, UITableViewDataSource, U
    
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       let detailViewController = segue.destination as! DetailViewController
-//      detailViewController.selectedList = selectedList
-      detailViewController.selectedItem = createdToDoLists[selectedIndexOfList!].itemsOnList[selectedListTableView.indexPathForSelectedRow!.row]
+      detailViewController.selectedItem = CoreDataModel.model.allLists[selectedIndexOfList!].arrayOfItemsOnList[selectedListTableView.indexPathForSelectedRow!.row]
+//      detailViewController.selectedItem = createdToDoLists[selectedIndexOfList!].itemsOnList[selectedListTableView.indexPathForSelectedRow!.row]
    }
    
    

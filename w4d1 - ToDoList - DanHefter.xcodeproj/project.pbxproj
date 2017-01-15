@@ -24,6 +24,9 @@
 		3799B1301DDA609C00C332ED /* AllToDoListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799B12F1DDA609C00C332ED /* AllToDoListsViewController.swift */; };
 		3799B1321DDA61A800C332ED /* ArrayOfToDoLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799B1311DDA61A800C332ED /* ArrayOfToDoLists.swift */; };
 		3799B1351DDCD24A00C332ED /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799B1341DDCD24A00C332ED /* DetailViewController.swift */; };
+		37D564861E27E4380053683F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D564851E27E4380053683F /* CoreData.framework */; };
+		37D564891E27E4A90053683F /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37D564871E27E4A90053683F /* CoreDataModel.xcdatamodeld */; };
+		37D5648B1E27EFC00053683F /* CoreDataLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D5648A1E27EFC00053683F /* CoreDataLogic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		3799B12F1DDA609C00C332ED /* AllToDoListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllToDoListsViewController.swift; sourceTree = "<group>"; };
 		3799B1311DDA61A800C332ED /* ArrayOfToDoLists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayOfToDoLists.swift; sourceTree = "<group>"; };
 		3799B1341DDCD24A00C332ED /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		37D564851E27E4380053683F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		37D564881E27E4A90053683F /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		37D5648A1E27EFC00053683F /* CoreDataLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37D564861E27E4380053683F /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +82,7 @@
 			children = (
 				3799B1141DDA4E6100C332ED /* w4d1 - ToDoList - DanHefter */,
 				3799B1131DDA4E6100C332ED /* Products */,
+				37D564841E27E4370053683F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,7 +101,6 @@
 				3799B12A1DDA5FCF00C332ED /* AllToDoLists */,
 				3799B1291DDA5FBB00C332ED /* SelectedToDoList */,
 				3799B1341DDCD24A00C332ED /* DetailViewController.swift */,
-				3799B1311DDA61A800C332ED /* ArrayOfToDoLists.swift */,
 				3799B1151DDA4E6100C332ED /* AppDelegate.swift */,
 				3799B1191DDA4E6100C332ED /* Main.storyboard */,
 				3799B11C1DDA4E6100C332ED /* Assets.xcassets */,
@@ -102,6 +109,9 @@
 				377BA9241DDE3CEA00CD2586 /* emptyCheckbox.png */,
 				377BA9261DDE42FF00CD2586 /* checkedBox.png */,
 				37878F691DDF635A000437F9 /* TestFileViewController.swift */,
+				3799B1311DDA61A800C332ED /* ArrayOfToDoLists.swift */,
+				37D564871E27E4A90053683F /* CoreDataModel.xcdatamodeld */,
+				37D5648A1E27EFC00053683F /* CoreDataLogic.swift */,
 			);
 			path = "w4d1 - ToDoList - DanHefter";
 			sourceTree = "<group>";
@@ -122,6 +132,14 @@
 				3799B12F1DDA609C00C332ED /* AllToDoListsViewController.swift */,
 			);
 			name = AllToDoLists;
+			sourceTree = "<group>";
+		};
+		37D564841E27E4370053683F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37D564851E27E4380053683F /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,7 +226,9 @@
 				3799B1161DDA4E6100C332ED /* AppDelegate.swift in Sources */,
 				3799B12E1DDA601700C332ED /* SelectedToDoListTableViewCell.swift in Sources */,
 				3799B1301DDA609C00C332ED /* AllToDoListsViewController.swift in Sources */,
+				37D564891E27E4A90053683F /* CoreDataModel.xcdatamodeld in Sources */,
 				3799B12C1DDA600000C332ED /* AllToDoListsTableViewCell.swift in Sources */,
+				37D5648B1E27EFC00053683F /* CoreDataLogic.swift in Sources */,
 				37878F6A1DDF635A000437F9 /* TestFileViewController.swift in Sources */,
 				3799B1351DDCD24A00C332ED /* DetailViewController.swift in Sources */,
 			);
@@ -377,6 +397,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		37D564871E27E4A90053683F /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				37D564881E27E4A90053683F /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 37D564881E27E4A90053683F /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3799B10A1DDA4E6100C332ED /* Project object */;
 }

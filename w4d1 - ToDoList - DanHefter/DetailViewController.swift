@@ -21,7 +21,8 @@ class DetailViewController: UIViewController, UITextViewDelegate {
    
    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
       detailViewTextField.endEditing(true)
-      selectedItem.description = detailViewTextField.text
+      selectedItem.itemDescription = detailViewTextField.text
+//      selectedItem.description = detailViewTextField.text
       return true
    }
    
@@ -40,7 +41,8 @@ class DetailViewController: UIViewController, UITextViewDelegate {
       if detailViewTextField.text == "" {
          detailViewTextField.text = selectedItem.description
       } else {
-         selectedItem.description = detailViewTextField.text
+         selectedItem.itemDescription = detailViewTextField.text
+//         selectedItem.description = detailViewTextField.text
       }
    }
    

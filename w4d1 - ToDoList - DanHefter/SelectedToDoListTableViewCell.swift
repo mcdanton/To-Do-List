@@ -10,7 +10,6 @@ import UIKit
 
 class SelectedToDoListTableViewCell: UITableViewCell {
    
-   //var currentItem: Item?
    var selectedList: Int?
    var currentIndexOfItem: Int?
    
@@ -19,23 +18,28 @@ class SelectedToDoListTableViewCell: UITableViewCell {
    @IBAction func taskCompletedAction(_ sender: AnyObject) {
       guard let myList = selectedList else {return}
       guard let myItemIndex = currentIndexOfItem else {return}
-      if createdToDoLists[myList].itemsOnList[myItemIndex].taskCompleted == true  {
+//      if createdToDoLists[myList].itemsOnList[myItemIndex].taskCompleted == true  {
+         if CoreDataModel.model.allLists[myList].arrayOfItemsOnList[myItemIndex].taskCompleted == true {
          taskCompleteButton.setBackgroundImage(UIImage(named: "checkedBox" ), for: UIControlState.normal)
          
-         createdToDoLists[myList].itemsOnList[myItemIndex].attributeString  = NSMutableAttributedString(string: displayToDoLabel.text!)
-         createdToDoLists[myList].itemsOnList[myItemIndex].attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 1, range: NSMakeRange(0, (displayToDoLabel.text?.characters.count)!))
-         createdToDoLists[myList].itemsOnList[myItemIndex].attributeString.addAttribute(NSStrikethroughColorAttributeName, value: UIColor.black, range: NSMakeRange(0, (displayToDoLabel.text?.characters.count)!))
-         
-         displayToDoLabel.attributedText = createdToDoLists[myList].itemsOnList[myItemIndex].attributeString
+//         createdToDoLists[myList].itemsOnList[myItemIndex].attributeString  = NSMutableAttributedString(string: displayToDoLabel.text!)
+//         createdToDoLists[myList].itemsOnList[myItemIndex].attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 1, range: NSMakeRange(0, (displayToDoLabel.text?.characters.count)!))
+//         createdToDoLists[myList].itemsOnList[myItemIndex].attributeString.addAttribute(NSStrikethroughColorAttributeName, value: UIColor.black, range: NSMakeRange(0, (displayToDoLabel.text?.characters.count)!))
+//         
+//         displayToDoLabel.attributedText = createdToDoLists[myList].itemsOnList[myItemIndex].attributeString
+            
+            CoreDataModel.model.allLists[myList].arrayOfItemsOnList[myItemIndex].taskCompleted = false
 
-         createdToDoLists[myList].itemsOnList[myItemIndex].taskCompleted = false
+//         createdToDoLists[myList].itemsOnList[myItemIndex].taskCompleted = false
          
       } else {
             taskCompleteButton.setBackgroundImage(UIImage(named: "emptyCheckbox" ), for: UIControlState.normal)
 
-         displayToDoLabel.text! = createdToDoLists[myList].itemsOnList[myItemIndex].itemTitle
+            displayToDoLabel.text! = CoreDataModel.model.allLists[myList].arrayOfItemsOnList[myItemIndex].itemTitle!
+//         displayToDoLabel.text! = createdToDoLists[myList].itemsOnList[myItemIndex].itemTitle
          
-            createdToDoLists[myList].itemsOnList[myItemIndex].taskCompleted = true
+            CoreDataModel.model.allLists[myList].arrayOfItemsOnList[myItemIndex].taskCompleted = true
+//            createdToDoLists[myList].itemsOnList[myItemIndex].taskCompleted = true
          }
       }
    

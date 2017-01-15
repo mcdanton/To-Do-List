@@ -10,8 +10,6 @@ import UIKit
 
 class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
    
-   
-   
    @IBOutlet weak var allToDoListTableView: UITableView!
    @IBOutlet weak var modalNewListView: UIView!
    @IBOutlet weak var modalNewViewTextField: UITextField!
@@ -40,7 +38,7 @@ class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITab
          cancelButtonOutlet.isEnabled = false
          return true
       }
-      createdToDoLists.append(ToDoList(listTitle: modalText))
+      CoreDataModel.model.createList(title: modalText)
       modalNewListView.isHidden = true
       allToDoListTableView.reloadData()
       modalNewViewTextField.text = nil
@@ -49,13 +47,14 @@ class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITab
 
    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
       if editingStyle == .delete {
-         createdToDoLists.remove(at: indexPath.item)
+         CoreDataModel.model.deleteList(list: CoreDataModel.model.allLists[indexPath.item])
+//         createdToDoLists.remove(at: indexPath.item)
          allToDoListTableView.reloadData()
       }
    }
    
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return createdToDoLists.count
+      return CoreDataModel.model.allLists.count
    }
 
    
@@ -63,8 +62,7 @@ class AllToDoListsViewController: UIViewController, UITableViewDataSource, UITab
    
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: "AllToDoListsTableViewCell", for: indexPath) as! AllToDoListsTableViewCell
-      cell.newListLabel.text = createdToDoLists[indexPath.item].listTitle
-      
+      cell.newListLabel.text = CoreDataModel.model.allLists[indexPath.item].listTitle
       cancelButtonOutlet.isEnabled = false
       return cell
    }
