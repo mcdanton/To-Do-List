@@ -3,11 +3,7 @@ This to-do list was the first project for my GA iOS immersive course. You can ad
 
 
 ##Screenshots
-![Home Page](To-Do List Screenshots/To-Do List Main Page Full.png "Home Page")
-
-![Managing Tasks](To-Do List Screenshots/To-Do List Managing Items No Keyboard.png "Managing Tasks")
-
-![Item Descriptions](To-Do List Screenshots/To-Do List Item Description.png "Item Descriptions")
+![Home Page](To-Do List Screenshots/To-Do List Main Page Full.png "Home Page") ![Managing Tasks](To-Do List Screenshots/To-Do List Managing Items No Keyboard.png "Managing Tasks") ![Item Descriptions](To-Do List Screenshots/To-Do List Item Description.png "Item Descriptions")
 
 ##Code Set Used
 * NSMutable Strings
