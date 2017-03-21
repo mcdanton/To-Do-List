@@ -6,5 +6,5 @@ This to-do list was the first project for my GA iOS immersive course. You can ad
 * User Defaults
 
 
-##Screenshots
-![Home Page](To-Do List Screenshots/To-Do List Main Page Full.png "Home Page") ![Managing Tasks](To-Do List Screenshots/To-Do List Managing Items No Keyboard.png "Managing Tasks") ![Item Descriptions](To-Do List Screenshots/To-Do List Item Description.png "Item Descriptions")
+## Screenshots
+![Home Page](To-Do_List_Screenshots/To-Do_List_Main_Page_Full.png "Home Page") ![Managing Tasks](To-Do_List_Screenshots/To-Do_List_Managing_Items_No_Keyboard.png "Managing Tasks") ![Item Descriptions](To-Do_List_Screenshots/To-Do_List_Item_Description.png "Item Descriptions")
